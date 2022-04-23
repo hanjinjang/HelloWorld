@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+ 	<form action="join.jsp" name="form1" method="post">
+ 	
+ 		아이디<input type="text" name="mid" id="mid" ><br>
+ 		비밀번호<input type="password" name="mpw" id="mpw"><br>
+ 		비밀번호확인<input type="password" name="mpwCheck" id="mpwCheck"><br>
+ 		이름<input type="text" name="mname" id="mname"><br>
+ 		주소<input type="text" name="maddr" id="maddr"><br>
+ 		성별 <br>
+ 		남<input type="radio" name="mGender" value="남" id="mGender">
+ 		여<input type="radio" name="mGender" value="여" id="mGender"><br>
+ 		취미<br>
+ 		java<input type="checkbox" name="mHobby" value="java" id="mHobby">
+ 		css<input type="checkbox" name="mHobby" value="css" id="mHobby">
+ 		html<input type="checkbox" name="mHobby" value="html" id="mHobby">
+ 		javascript<input type="checkbox" name="mHobby" value="javascript" id="mHobby">
+ 	</form>
+ 	<button type="button" onclick="click1()">회원가입</button>
+ 	<script type="text/javascript"> 
+ 		function click1() {
+ 			var mid = document.getElementById("mid");
+ 			var objmpw = document.getElementById("mpw");
+ 			var objmpwCheck = document.getElementById("mpwCheck");
+ 			var mname = document.getElementById("mname");
+ 			var maddr = document.getElementById("maddr");
+ 			var mGender = document.getElementById("mGender");
+ 			var mHobby = document.getElementById("mHobby");
+ 			var f = document.form1;
+ 			
+ 			var idRegExp = /^[a-zA-z0-9]{4,12}$/;
+
+ 			if(mid.value == ""){
+ 				alert("아이디를 입력하세요");
+ 				f.mid.focus();
+ 				return false;
+ 			}
+ 		
+ 			
+ 			if(mpw.value == ""){
+ 				alert("비밀번호를 입력하세요");
+ 				f.mpw.focus();
+ 				return;
+ 			}
+ 			if(mpwCheck.value != mpw.value){
+ 				alert("비밀번호를 재확인해주세요");
+ 				f.mpwCheck.focus();
+ 				return;
+ 			}
+ 			if(mname.value == ""){
+ 				alert("이름을 넣어주세요");
+ 				f.mname.focus();
+ 				return;
+ 			}
+ 			if(maddr.value == ""){
+ 				alert("주소를 확인해주세요");
+ 				f.maddr.focus();
+ 				return;
+ 			}
+ 			if(f.mGender[0].checked==false){
+ 				alert("성별을 입력해주세요");
+ 				return;
+ 			}
+ 			if(f.mHobby[0].checked==false){
+ 				alert("취미는 1가지 이상 선택해주세요");
+ 				return;
+ 			}
+ 				
+ 			
+ 		
+			form1.submit();
+		}
+ 	</script>
+</body>
+</html>
